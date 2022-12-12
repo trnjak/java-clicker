@@ -3,7 +3,11 @@
 */
 import javax.swing.*;
 import java.awt.event.*; 
-import java.awt.*; 
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Clicker{
     static long points = 0;
@@ -26,6 +30,8 @@ public class Clicker{
     static JButton powX = new JButton("[+10 POW]: " + pricePowX);
     static JButton cpsPlus = new JButton("[+1 CPS]: " + priceCps);
     static JButton cpsX = new JButton("[+10 CPS]: " + priceCpsX);
+
+    static JButton reset = new JButton("RESET");
 
     static void window(){
         window.setLayout(null);  
@@ -178,15 +184,77 @@ public class Clicker{
         window.add(cpsX);
     }
 
+    static void load(){
+        try{
+            FileInputStream fis = new FileInputStream("save.uwu");
+            Scanner in = new Scanner(fis);
+            points = in.nextLong();
+            cps = in.nextInt();
+            priceCps = in.nextInt();
+            priceCpsX = in.nextInt();
+            pow = in.nextInt();
+            pricePow = in.nextInt();
+            pricePowX = in.nextInt();
+            in.close();
+        }catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void save(){
+        try{
+            PrintWriter pw = new PrintWriter("save.uwu");
+            pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
+            pw.flush();
+            pw.close();
+        }catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void reset(){
+        reset.setBounds(20, 10, 100, 25);
+        reset.setFocusPainted(false);
+        reset.setBorderPainted(false);
+        reset.setBackground(new Color(32, 30, 80));
+        reset.setForeground(new Color(196, 241, 190));
+        reset.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        reset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    PrintWriter pw = new PrintWriter("save.uwu");
+                    points = 0;
+                    cps = 0;
+                    priceCps = 100;
+                    priceCpsX = 1000;
+                    pow = 1;
+                    pricePow = 50;
+                    pricePowX = 500;
+                    pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
+                    pw.flush();
+                    pw.close();
+                    save();
+                }catch (FileNotFoundException d){
+                    System.out.println(d.getMessage());
+                }
+            }
+        });
+        window.add(reset);
+    }
+
     public static void main(String[] args) throws InterruptedException{
         window();
         button();
         text();
         shop();
+        reset();
+        load();
         while(true){
             points = points + cps;
             textPoints.setText(String.valueOf(points));
             textBought.setText("");
+            save();
             Thread.sleep(1000);
         }
     }

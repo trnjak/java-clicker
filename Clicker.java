@@ -184,6 +184,16 @@ public class Clicker{
         window.add(cpsX);
     }
 
+    static void settingText(){
+        textPoints.setText(String.valueOf(points));
+        textCps.setText("[CPS]: " + Integer.toString(cps));
+        cpsPlus.setText("[+1 CPS]: " + Integer.toString(priceCps));
+        cpsX.setText("[+10 CPS]: " + Integer.toString(priceCpsX));
+        textPow.setText("[POW]: " + Integer.toString(pow));
+        powPlus.setText("[+1 POW]: " + Integer.toString(pricePow));
+        powX.setText("[+10 POW]: " + Integer.toString(pricePowX));
+    }
+
     static void load(){
         try{
             FileInputStream fis = new FileInputStream("save.uwu");
@@ -195,6 +205,7 @@ public class Clicker{
             pow = in.nextInt();
             pricePow = in.nextInt();
             pricePowX = in.nextInt();
+            settingText();
             in.close();
         }catch (FileNotFoundException e){
             System.out.println(e.getMessage());
@@ -234,6 +245,7 @@ public class Clicker{
                     pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
                     pw.flush();
                     pw.close();
+                    settingText();
                     save();
                 }catch (FileNotFoundException d){
                     System.out.println(d.getMessage());

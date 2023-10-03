@@ -1,3 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 public class EasyPlayer extends Player {
     private long points;
     private int cps = 1, priceCps = 50, priceCpsX = 500, pow = 2, pricePow = 25, pricePowX = 250;

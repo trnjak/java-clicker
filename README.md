@@ -1,4 +1,4 @@
 # java-clicker
-A simple clicker game made in Java. 
+This was done as a project for programming class.
 
-I will build upon this game and maybe create something much cooler in the future :).  
+Of course, this was the best project.

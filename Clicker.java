@@ -2,21 +2,19 @@
 import javax.swing.*;
 import java.awt.event.*; 
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Clicker extends JFrame {
 
     public static void main(String[] args) {
-        new Window();
+        new StartPage();
         load();
         while(true){
-            Clicker.points = Clicker.points + Clicker.cps;
-            Clicker.textPoints.setText(String.valueOf(Clicker.points));
-            Clicker.textBought.setText("");
-            Clicker.save();
+            points = points + cps;
+            textPoints.setText(String.valueOf(points));
+            textBought.setText("");
+            save();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ie) {

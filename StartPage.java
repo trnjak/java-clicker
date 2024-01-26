@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Window extends JFrame implements ActionListener {
+public class StartPage extends JFrame implements ActionListener {
     Dimension d = new Dimension(150, 150);
     Color bg = new Color(0x546A76), fg = new Color(0xFAD4D8);
     JPanel top = new JPanel(), left = new JPanel(), right = new JPanel(), bottom = new JPanel(), center = new JPanel();
     JButton button = new JButton("CLICK TO ENTER!");
-    public Window(){
+    public StartPage(){
         this.setTitle("WELCOME");
         this.setSize(1024, 768);
         this.setResizable(false);

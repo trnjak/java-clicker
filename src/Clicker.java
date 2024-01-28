@@ -5,7 +5,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-public class Clicker extends JFrame {
+public class Clicker extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         new StartPage();
@@ -64,13 +64,7 @@ public class Clicker extends JFrame {
         button.setBackground(fg);
         button.setForeground(bg);
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                points = points + pow;
-                textPoints.setText(String.valueOf(points));
-            }
-        });
+        button.addActionListener(this);
         this.add(button);
 
         textPoints.setBounds(50*x,400*x, 400*x,30*x);
@@ -100,23 +94,7 @@ public class Clicker extends JFrame {
         powPlus.setBackground(fg);
         powPlus.setForeground(bg);
         powPlus.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        powPlus.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(points >= pricePow){
-                    points = points - pricePow;
-                    pow++;
-                    pricePow = pricePow + (int) (pricePow * 0.15);
-                    textBought.setText("Bought!");
-                    textPoints.setText(String.valueOf(points));
-                    textPow.setText("[POW]: " + pow);
-                    powPlus.setText("[+1 POW]: " + pricePow);
-                }
-                else{
-                    textBought.setText("Not enough points!");
-                }
-            }
-        });
+        powPlus.addActionListener(this);
         this.add(powPlus);
 
         powX.setBounds(250*x, 100*x, 200*x, 30*x);  
@@ -126,23 +104,7 @@ public class Clicker extends JFrame {
         powX.setBackground(fg);
         powX.setForeground(bg);
         powX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        powX.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(points >= pricePowX){
-                    points = points - pricePowX;
-                    pow = pow + 10;
-                    pricePowX = pricePowX + (int) (pricePowX * 0.15);
-                    textBought.setText("Bought!");
-                    textPoints.setText(String.valueOf(points));
-                    textPow.setText("[POW]: " + pow);
-                    powX.setText("[+10 POW]: " + pricePowX);
-                }
-                else{
-                    textBought.setText("Not enough points!");
-                }
-            }
-        });
+        powX.addActionListener(this);
         this.add(powX);
 
         cpsPlus.setBounds(250*x, 170*x, 200*x, 30*x);
@@ -152,23 +114,7 @@ public class Clicker extends JFrame {
         cpsPlus.setBackground(fg);
         cpsPlus.setForeground(bg);
         cpsPlus.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        cpsPlus.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(points >= priceCps){
-                    points = points - priceCps;
-                    cps++;
-                    priceCps = priceCps + (int) (priceCps * 0.30);
-                    textBought.setText("Bought!");
-                    textPoints.setText(String.valueOf(points));
-                    textCps.setText("[CPS]: " + cps);
-                    cpsPlus.setText("[+1 CPS]: " + priceCps);
-                }
-                else{
-                    textBought.setText("Not enough points!");
-                }
-            }
-        });
+        cpsPlus.addActionListener(this);
         this.add(cpsPlus);
 
         cpsX.setBounds(250*x, 240*x, 200*x, 30*x);  
@@ -178,23 +124,7 @@ public class Clicker extends JFrame {
         cpsX.setBackground(fg);
         cpsX.setForeground(bg);
         cpsX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        cpsX.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(points >= priceCpsX){
-                    points = points - priceCpsX;
-                    cps = cps + 10;
-                    priceCpsX = priceCpsX + (int) (priceCpsX * 0.30);
-                    textBought.setText("Bought!");
-                    textPoints.setText(String.valueOf(points));
-                    textCps.setText("[CPS]: " + cps);
-                    cpsX.setText("[+10 CPS]: " + priceCpsX);
-                }
-                else{
-                    textBought.setText("Not enough points!");
-                }
-            }
-        });
+        cpsX.addActionListener(this);
         this.add(cpsX);
 
         settingText();
@@ -206,31 +136,7 @@ public class Clicker extends JFrame {
         reset.setBackground(fg);
         reset.setForeground(bg);
         reset.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        reset.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int ans = JOptionPane.showConfirmDialog(null,"THIS WILL RESET THE GAME AND OVERWRITE THE SAVE FILE","RESET",JOptionPane.OK_CANCEL_OPTION);
-                if(ans == 0){
-                    try{
-                        PrintWriter pw = new PrintWriter("save.uwu");
-                        points = 0;
-                        cps = 0;
-                        priceCps = 100;
-                        priceCpsX = 1000;
-                        pow = 1;
-                        pricePow = 50;
-                        pricePowX = 500;
-                        pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
-                        pw.flush();
-                        pw.close();
-                        settingText();
-                        save();
-                    }catch (FileNotFoundException d){
-                        System.out.println(d.getMessage());
-                    }
-                }
-            }
-        });
+        reset.addActionListener(this);
         this.add(reset);
     }
 
@@ -270,6 +176,92 @@ public class Clicker extends JFrame {
             pw.close();
         }catch (FileNotFoundException e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == button){
+            points = points + pow;
+            textPoints.setText(String.valueOf(points));
+        }
+        if(e.getSource() == powPlus){
+            if(points >= pricePow){
+                points = points - pricePow;
+                pow++;
+                pricePow = pricePow + (int) (pricePow * 0.15);
+                textBought.setText("Bought!");
+                textPoints.setText(String.valueOf(points));
+                textPow.setText("[POW]: " + pow);
+                powPlus.setText("[+1 POW]: " + pricePow);
+            }
+            else{
+                textBought.setText("Not enough points!");
+            }
+        }
+        if(e.getSource() == powX){
+            if(points >= pricePowX){
+                points = points - pricePowX;
+                pow = pow + 10;
+                pricePowX = pricePowX + (int) (pricePowX * 0.15);
+                textBought.setText("Bought!");
+                textPoints.setText(String.valueOf(points));
+                textPow.setText("[POW]: " + pow);
+                powX.setText("[+10 POW]: " + pricePowX);
+            }
+            else{
+                textBought.setText("Not enough points!");
+            }
+        }
+        if(e.getSource() == cpsPlus){
+            if(points >= priceCps){
+                points = points - priceCps;
+                cps++;
+                priceCps = priceCps + (int) (priceCps * 0.30);
+                textBought.setText("Bought!");
+                textPoints.setText(String.valueOf(points));
+                textCps.setText("[CPS]: " + cps);
+                cpsPlus.setText("[+1 CPS]: " + priceCps);
+            }
+            else{
+                textBought.setText("Not enough points!");
+            }
+        }
+        if(e.getSource() == cpsX){
+            if(points >= priceCpsX){
+                points = points - priceCpsX;
+                cps = cps + 10;
+                priceCpsX = priceCpsX + (int) (priceCpsX * 0.30);
+                textBought.setText("Bought!");
+                textPoints.setText(String.valueOf(points));
+                textCps.setText("[CPS]: " + cps);
+                cpsX.setText("[+10 CPS]: " + priceCpsX);
+            }
+            else{
+                textBought.setText("Not enough points!");
+            }
+        }
+        if(e.getSource() == reset){
+            int ans = JOptionPane.showConfirmDialog(null,"THIS WILL RESET THE GAME AND OVERWRITE THE SAVE FILE","RESET",JOptionPane.OK_CANCEL_OPTION);
+            if(ans == 0){
+                try{
+                    PrintWriter pw = new PrintWriter("save.uwu");
+                    points = 0;
+                    cps = 0;
+                    priceCps = 100;
+                    priceCpsX = 1000;
+                    pow = 1;
+                    pricePow = 50;
+                    pricePowX = 500;
+                    pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
+                    pw.flush();
+                    pw.close();
+                    settingText();
+                    save();
+                }catch (FileNotFoundException d){
+                    System.out.println(d.getMessage());
+                }
+            }
         }
     }
 }

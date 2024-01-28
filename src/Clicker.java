@@ -58,7 +58,13 @@ public class Clicker extends JFrame {
         this.setVisible(true);  
 
         button.setBounds(350*x, 390*x, 100*x, 50*x);
-        button.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         button.setFocusPainted(false);
         button.setBorderPainted(false);
         button.setBackground(fg);
@@ -74,27 +80,57 @@ public class Clicker extends JFrame {
         this.add(button);
 
         textPoints.setBounds(50*x,400*x, 400*x,30*x);
-        textPoints.setFont(new Font("", Font.BOLD, 20*x));  
+        try {
+            textPoints.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(24f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         textPoints.setForeground(fg);
         this.add(textPoints);
 
         textPow.setBounds(50*x, 70*x, 400*x,30*x);  
-        textPow.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            textPow.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         textPow.setForeground(fg);
         this.add(textPow);
 
         textCps.setBounds(50*x, 210*x, 400*x, 30*x);  
-        textCps.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            textCps.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         textCps.setForeground(fg);
         this.add(textCps);
 
         textBought.setBounds(50*x, 140*x, 400*x,30*x);  
-        textBought.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            textBought.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         textBought.setForeground(fg);
         this.add(textBought);
 
         powPlus.setBounds(250*x, 30*x, 200*x, 30*x);
-        powPlus.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            powPlus.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         powPlus.setFocusPainted(false);
         powPlus.setBorderPainted(false);
         powPlus.setBackground(fg);
@@ -119,8 +155,14 @@ public class Clicker extends JFrame {
         });
         this.add(powPlus);
 
-        powX.setBounds(250*x, 100*x, 200*x, 30*x);
-        powX.setFont(new Font("", Font.BOLD, 15*x));
+        powX.setBounds(250*x, 100*x, 200*x, 30*x);  
+        try {
+            powX.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         powX.setFocusPainted(false);
         powX.setBorderPainted(false);
         powX.setBackground(fg);
@@ -146,7 +188,13 @@ public class Clicker extends JFrame {
         this.add(powX);
 
         cpsPlus.setBounds(250*x, 170*x, 200*x, 30*x);
-        cpsPlus.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            cpsPlus.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         cpsPlus.setFocusPainted(false);
         cpsPlus.setBorderPainted(false);
         cpsPlus.setBackground(fg);
@@ -171,8 +219,14 @@ public class Clicker extends JFrame {
         });
         this.add(cpsPlus);
 
-        cpsX.setBounds(250*x, 240*x, 200*x, 30*x);
-        cpsX.setFont(new Font("", Font.BOLD, 15*x));
+        cpsX.setBounds(250*x, 240*x, 200*x, 30*x);  
+        try {
+            cpsX.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         cpsX.setFocusPainted(false);
         cpsX.setBorderPainted(false);
         cpsX.setBackground(fg);
@@ -200,7 +254,13 @@ public class Clicker extends JFrame {
         settingText();
 
         reset.setBounds(20*x, 10*x, 100*x, 25*x);
-        reset.setFont(new Font("", Font.BOLD, 15*x));
+        try {
+            reset.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         reset.setFocusPainted(false);
         reset.setBorderPainted(false);
         reset.setBackground(fg);

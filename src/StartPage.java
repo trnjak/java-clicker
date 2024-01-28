@@ -1,6 +1,6 @@
+// made by marko trnjak (https://trnjak.github.io) 
 import javax.swing.*;
 import javax.swing.border.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -33,7 +33,13 @@ public class StartPage extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
 
-        button.setFont(new Font("", Font.BOLD, 24*x));
+        try {
+            button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(24f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         button.setForeground(fg);
         button.setBackground(bg);
         button.setBorder(new LineBorder(fg));
@@ -41,7 +47,14 @@ public class StartPage extends JFrame implements ActionListener {
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         button.addActionListener(this);
 
-        settings.setFont(new Font("", Font.BOLD, 24*x));
+        
+        try {
+            settings.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(24f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         settings.setForeground(fg);
         settings.setBackground(bg);
         settings.setBorder(new LineBorder(fg));
@@ -49,7 +62,13 @@ public class StartPage extends JFrame implements ActionListener {
         settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         settings.addActionListener(this);
 
-        title.setFont(new Font("", Font.BOLD, 24*x));
+        try {
+            title.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(24f*x));
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         title.setForeground(fg);
         title.setBorder(new LineBorder(fg));
         title.setHorizontalAlignment(0);

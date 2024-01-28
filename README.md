@@ -1,4 +1,4 @@
-# Something - the JavaX clicker game!
+# Something - the Swing clicker game!
 This was done as a project for programming class. Of course, this was the best project.
 
 ## How to run

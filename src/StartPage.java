@@ -33,13 +33,8 @@ public class StartPage extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
 
-        try {
-            button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(24f*x));
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        button.setFont(new Font("", Font.BOLD, 24*x));
+        button.setFont(new Font("", Font.BOLD, 24*x));
         button.setForeground(fg);
         button.setBackground(bg);
         button.setBorder(new LineBorder(fg));
@@ -48,13 +43,7 @@ public class StartPage extends JFrame implements ActionListener {
         button.addActionListener(this);
 
         
-        try {
-            settings.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(24f*x));
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        settings.setFont(new Font("", Font.BOLD, 24*x));
         settings.setForeground(fg);
         settings.setBackground(bg);
         settings.setBorder(new LineBorder(fg));
@@ -62,13 +51,7 @@ public class StartPage extends JFrame implements ActionListener {
         settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         settings.addActionListener(this);
 
-        try {
-            title.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(24f*x));
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        title.setFont(new Font("", Font.BOLD, 24*x));
         title.setForeground(fg);
         title.setBorder(new LineBorder(fg));
         title.setHorizontalAlignment(0);

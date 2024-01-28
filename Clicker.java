@@ -48,7 +48,7 @@ public class Clicker extends JFrame {
     JButton reset = new JButton("RESET");
 
     public Clicker(int x){
-        this.setTitle("Java Clicker!");
+        this.setTitle("JAVAX SUCKS!");
         this.setLayout(null);  
         this.getContentPane().setBackground(bg);
         this.setSize(500*x, 500*x);  

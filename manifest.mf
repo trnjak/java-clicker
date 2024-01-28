@@ -1,0 +1,4 @@
+Manifest-Version: 1.1.0
+Built-By: trnjak
+Main-Class: Clicker
+Created-By: openjdk version "17.0.9" 2023-10-17

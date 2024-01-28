@@ -48,7 +48,7 @@ public class Clicker extends JFrame implements ActionListener {
     JButton reset = new JButton("RESET");
 
     public Clicker(int x){
-        this.setTitle("JAVAX SUCKS!");
+        this.setTitle("Something - the Swing clicker game!");
         this.setLayout(null);  
         this.getContentPane().setBackground(bg);
         this.setSize(500*x, 500*x);  

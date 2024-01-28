@@ -10,7 +10,7 @@ public class StartPage extends JFrame implements ActionListener {
     int x = 1;
     Dimension d = new Dimension(150, 150);
     Color bg = new Color(0x546A76), fg = new Color(0xFAD4D8);
-    JLabel title = new JLabel("JAVAX SUCKS!");
+    JLabel title = new JLabel("SOMETHING");
     JPanel top = new JPanel(), left = new JPanel(), right = new JPanel(), bottom = new JPanel(), center = new JPanel();
     JButton button = new JButton("PLAY!"), settings = new JButton("SCALE: " + x + "X");
     public StartPage(){
@@ -26,7 +26,7 @@ public class StartPage extends JFrame implements ActionListener {
 
         settings.setText("SCALE: "+ x + "X");
 
-        this.setTitle("JAVAX SUCKS!");
+        this.setTitle("Something - the Swing clicker game!");
         this.setSize(500*x, 500*x);
         this.setResizable(false);
         this.setDefaultCloseOperation(3);

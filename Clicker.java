@@ -47,18 +47,18 @@ public class Clicker extends JFrame {
 
     JButton reset = new JButton("RESET");
 
-    public Clicker(){
+    public Clicker(int x){
         this.setTitle("Java Clicker!");
         this.setLayout(null);  
         this.getContentPane().setBackground(bg);
-        this.setSize(500*2, 500*2);  
+        this.setSize(500*x, 500*x);  
         this.setLocationRelativeTo(null);
         this.setResizable(false);  
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         this.setVisible(true);  
 
-        button.setBounds(350*2, 390*2, 100*2, 50*2);
-        button.setFont(new Font("", Font.BOLD, 15*2));
+        button.setBounds(350*x, 390*x, 100*x, 50*x);
+        button.setFont(new Font("", Font.BOLD, 15*x));
         button.setFocusPainted(false);
         button.setBorderPainted(false);
         button.setBackground(fg);
@@ -73,28 +73,28 @@ public class Clicker extends JFrame {
         });
         this.add(button);
 
-        textPoints.setBounds(50*2,400*2, 400*2,30*2);
-        textPoints.setFont(new Font("", Font.BOLD, 20*2));  
+        textPoints.setBounds(50*x,400*x, 400*x,30*x);
+        textPoints.setFont(new Font("", Font.BOLD, 20*x));  
         textPoints.setForeground(fg);
         this.add(textPoints);
 
-        textPow.setBounds(50*2, 70*2, 400*2,30*2);  
-        textPow.setFont(new Font("", Font.BOLD, 15*2));
+        textPow.setBounds(50*x, 70*x, 400*x,30*x);  
+        textPow.setFont(new Font("", Font.BOLD, 15*x));
         textPow.setForeground(fg);
         this.add(textPow);
 
-        textCps.setBounds(50*2, 210*2, 400*2, 30*2);  
-        textCps.setFont(new Font("", Font.BOLD, 15*2));
+        textCps.setBounds(50*x, 210*x, 400*x, 30*x);  
+        textCps.setFont(new Font("", Font.BOLD, 15*x));
         textCps.setForeground(fg);
         this.add(textCps);
 
-        textBought.setBounds(50*2, 140*2, 400*2,30*2);  
-        textBought.setFont(new Font("", Font.BOLD, 15*2));
+        textBought.setBounds(50*x, 140*x, 400*x,30*x);  
+        textBought.setFont(new Font("", Font.BOLD, 15*x));
         textBought.setForeground(fg);
         this.add(textBought);
 
-        powPlus.setBounds(250*2, 30*2, 200*2, 30*2);
-        powPlus.setFont(new Font("", Font.BOLD, 15*2));
+        powPlus.setBounds(250*x, 30*x, 200*x, 30*x);
+        powPlus.setFont(new Font("", Font.BOLD, 15*x));
         powPlus.setFocusPainted(false);
         powPlus.setBorderPainted(false);
         powPlus.setBackground(fg);
@@ -119,8 +119,8 @@ public class Clicker extends JFrame {
         });
         this.add(powPlus);
 
-        powX.setBounds(250*2, 100*2, 200*2, 30*2);
-        powX.setFont(new Font("", Font.BOLD, 15*2));
+        powX.setBounds(250*x, 100*x, 200*x, 30*x);
+        powX.setFont(new Font("", Font.BOLD, 15*x));
         powX.setFocusPainted(false);
         powX.setBorderPainted(false);
         powX.setBackground(fg);
@@ -145,8 +145,8 @@ public class Clicker extends JFrame {
         });
         this.add(powX);
 
-        cpsPlus.setBounds(250*2, 170*2, 200*2, 30*2);
-        cpsPlus.setFont(new Font("", Font.BOLD, 15*2));
+        cpsPlus.setBounds(250*x, 170*x, 200*x, 30*x);
+        cpsPlus.setFont(new Font("", Font.BOLD, 15*x));
         cpsPlus.setFocusPainted(false);
         cpsPlus.setBorderPainted(false);
         cpsPlus.setBackground(fg);
@@ -171,8 +171,8 @@ public class Clicker extends JFrame {
         });
         this.add(cpsPlus);
 
-        cpsX.setBounds(250*2, 240*2, 200*2, 30*2);
-        cpsX.setFont(new Font("", Font.BOLD, 15*2));
+        cpsX.setBounds(250*x, 240*x, 200*x, 30*x);
+        cpsX.setFont(new Font("", Font.BOLD, 15*x));
         cpsX.setFocusPainted(false);
         cpsX.setBorderPainted(false);
         cpsX.setBackground(fg);
@@ -199,8 +199,8 @@ public class Clicker extends JFrame {
 
         settingText();
 
-        reset.setBounds(20*2, 10*2, 100*2, 25*2);
-        reset.setFont(new Font("", Font.BOLD, 15*2));
+        reset.setBounds(20*x, 10*x, 100*x, 25*x);
+        reset.setFont(new Font("", Font.BOLD, 15*x));
         reset.setFocusPainted(false);
         reset.setBorderPainted(false);
         reset.setBackground(fg);
@@ -209,22 +209,25 @@ public class Clicker extends JFrame {
         reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    PrintWriter pw = new PrintWriter("save.uwu");
-                    points = 0;
-                    cps = 0;
-                    priceCps = 100;
-                    priceCpsX = 1000;
-                    pow = 1;
-                    pricePow = 50;
-                    pricePowX = 500;
-                    pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
-                    pw.flush();
-                    pw.close();
-                    settingText();
-                    save();
-                }catch (FileNotFoundException d){
-                    System.out.println(d.getMessage());
+                int ans = JOptionPane.showConfirmDialog(null,"THIS WILL RESET THE GAME AND OVERWRITE THE SAVE FILE","RESET",JOptionPane.OK_CANCEL_OPTION);
+                if(ans == 0){
+                    try{
+                        PrintWriter pw = new PrintWriter("save.uwu");
+                        points = 0;
+                        cps = 0;
+                        priceCps = 100;
+                        priceCpsX = 1000;
+                        pow = 1;
+                        pricePow = 50;
+                        pricePowX = 500;
+                        pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
+                        pw.flush();
+                        pw.close();
+                        settingText();
+                        save();
+                    }catch (FileNotFoundException d){
+                        System.out.println(d.getMessage());
+                    }
                 }
             }
         });

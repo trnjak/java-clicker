@@ -14,7 +14,6 @@ public class StartPage extends JFrame implements ActionListener {
     JPanel top = new JPanel(), left = new JPanel(), right = new JPanel(), bottom = new JPanel(), center = new JPanel();
     JButton button = new JButton("PLAY!"), settings = new JButton("SCALE: " + x + "X");
     public StartPage(){
-
         try{
             FileInputStream fis = new FileInputStream("scale.uwu");
             Scanner in = new Scanner(fis);
@@ -33,7 +32,6 @@ public class StartPage extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
 
-        button.setFont(new Font("", Font.BOLD, 24*x));
         button.setFont(new Font("", Font.BOLD, 24*x));
         button.setForeground(fg);
         button.setBackground(bg);
@@ -63,7 +61,7 @@ public class StartPage extends JFrame implements ActionListener {
         
         top.setBackground(bg);
         left.setBackground(bg);
-        right.setBackground(bg);
+        right.setBackground(bg);    
         bottom.setBackground(bg);
 
         center.setPreferredSize(new Dimension(500*x, 500*x));
@@ -79,6 +77,7 @@ public class StartPage extends JFrame implements ActionListener {
         this.add(right, BorderLayout.EAST);
         this.add(bottom, BorderLayout.SOUTH);
         this.setVisible(true);
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {

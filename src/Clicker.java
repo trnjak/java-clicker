@@ -179,6 +179,26 @@ public class Clicker extends JFrame implements ActionListener {
         }
     }
 
+    public static void reset(){
+        try{
+            PrintWriter pw = new PrintWriter("save.uwu");
+            points = 0;
+            cps = 0;
+            priceCps = 100;
+            priceCpsX = 1000;
+            pow = 1;
+            pricePow = 50;
+            pricePowX = 500;
+            pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
+            pw.flush();
+            pw.close();
+            settingText();
+            save();
+        }catch (FileNotFoundException d){
+            System.out.println(d.getMessage());
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
@@ -242,26 +262,7 @@ public class Clicker extends JFrame implements ActionListener {
             }
         }
         if(e.getSource() == reset){
-            int ans = JOptionPane.showConfirmDialog(null,"THIS WILL RESET THE GAME AND OVERWRITE THE SAVE FILE","RESET",JOptionPane.OK_CANCEL_OPTION);
-            if(ans == 0){
-                try{
-                    PrintWriter pw = new PrintWriter("save.uwu");
-                    points = 0;
-                    cps = 0;
-                    priceCps = 100;
-                    priceCpsX = 1000;
-                    pow = 1;
-                    pricePow = 50;
-                    pricePowX = 500;
-                    pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
-                    pw.flush();
-                    pw.close();
-                    settingText();
-                    save();
-                }catch (FileNotFoundException d){
-                    System.out.println(d.getMessage());
-                }
-            }
+            new ResetCheck();
         }
     }
 }

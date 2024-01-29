@@ -10,6 +10,10 @@ import java.awt.*;
 public class NewGame extends JFrame implements ActionListener {
     int x = 1;
     Color bg = new Color(0x546A76), fg = new Color(0xFAD4D8);
+
+    JFileChooser chooser = new JFileChooser(".");
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("UWU save file", "uwu");
+
     JButton newGame = new JButton("NEW GAME"), loadGame = new JButton("LOAD GAME");
     JPanel panel = new JPanel();
     public NewGame(StartPage sp){
@@ -30,6 +34,9 @@ public class NewGame extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         this.getContentPane().setBackground(bg);
+
+        chooser.setPreferredSize(new Dimension(300*x, 250*x));
+        chooser.setFileFilter(filter);
 
         newGame.setFont(new Font("", Font.BOLD, 12*x));
         newGame.setForeground(fg);
@@ -56,7 +63,10 @@ public class NewGame extends JFrame implements ActionListener {
         loadGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                sp.dispose();
+                chooser.showOpenDialog(null);
+                if(chooser.getSelectedFile().getName().endsWith("uwu")){
+                    sp.dispose();
+                }
             }
         });
         loadGame.setPreferredSize(new Dimension(125*x, 125*x));
@@ -91,11 +101,6 @@ public class NewGame extends JFrame implements ActionListener {
             new Clicker(x, save);
         }
         if(e.getSource() == loadGame){
-            JFileChooser chooser = new JFileChooser(".");
-            chooser.setPreferredSize(new Dimension(300*x, 250*x));
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("UWU save file", "uwu");
-            chooser.setFileFilter(filter);
-            chooser.showOpenDialog(null);
             if(chooser.getSelectedFile().getName().endsWith("uwu")){
                 this.dispose();
                 new Clicker(x, chooser.getSelectedFile());

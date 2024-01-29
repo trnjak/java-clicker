@@ -39,7 +39,11 @@ public class LoadPicker implements ActionListener {
                 if(str.startsWith("save")){
                     JButton button = new JButton(str);
                     File save = new File(str);
-                    button.setFont(new Font("", Font.BOLD, 12*x));
+                    try {
+                        button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     button.setForeground(fg);
                     button.setBackground(bg);
                     button.setBorder(new LineBorder(fg));
@@ -57,14 +61,22 @@ public class LoadPicker implements ActionListener {
                 }
             }
             if(i == 0){
-                LoadPicker.setSize(250*x, 40*x);
+                LoadPicker.setSize(250*x, 65*x);
                 JLabel j = new JLabel("NO SAVE FILES FOUND");
-                j.setFont(new Font("", Font.BOLD, 12*x));
+                try {
+                    j.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 j.setForeground(fg);
                 j.setBackground(bg);
                 LoadPicker.add(j);
                 JButton button = new JButton("GO BACK?");
-                button.setFont(new Font("", Font.BOLD, 12*x));
+                try {
+                    button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 button.setForeground(fg);
                 button.setBackground(bg);
                 button.setBorder(new LineBorder(fg));

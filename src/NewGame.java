@@ -38,7 +38,11 @@ public class NewGame extends JFrame implements ActionListener {
         chooser.setPreferredSize(new Dimension(300*x, 250*x));
         chooser.setFileFilter(filter);
 
-        newGame.setFont(new Font("", Font.BOLD, 12*x));
+        try {
+            newGame.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         newGame.setForeground(fg);
         newGame.setBackground(bg);
         newGame.setBorder(new LineBorder(fg));
@@ -53,7 +57,11 @@ public class NewGame extends JFrame implements ActionListener {
         });
         newGame.setPreferredSize(new Dimension(125*x, 125*x));
 
-        loadGame.setFont(new Font("", Font.BOLD, 12*x));
+        try {
+            loadGame.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         loadGame.setForeground(fg);
         loadGame.setBackground(bg);
         loadGame.setBorder(new LineBorder(fg));

@@ -30,7 +30,11 @@ public class ResetCheck extends JFrame implements ActionListener {
         this.setLayout(new BorderLayout());
         this.getContentPane().setBackground(bg);
 
-        yes.setFont(new Font("", Font.BOLD, 12*x));
+        try {
+            yes.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         yes.setForeground(fg);
         yes.setBackground(bg);
         yes.setBorder(new LineBorder(fg));
@@ -45,7 +49,11 @@ public class ResetCheck extends JFrame implements ActionListener {
         });
         yes.setPreferredSize(new Dimension(125*x, 125*x));
 
-        no.setFont(new Font("", Font.BOLD, 12*x));
+        try {
+            no.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         no.setForeground(fg);
         no.setBackground(bg);
         no.setBorder(new LineBorder(fg));

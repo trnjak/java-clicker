@@ -22,6 +22,8 @@ public class Clicker extends JFrame implements ActionListener {
     static int pricePow = 50;
     static int pricePowX = 500;
 
+    JPanel top = new JPanel(), left = new JPanel(), center = new JPanel(), right = new JPanel(), bottom = new JPanel();
+
     JButton button = new JButton("Click!");
 
     static JLabel textPoints = new JLabel(String.valueOf(points));
@@ -48,13 +50,13 @@ public class Clicker extends JFrame implements ActionListener {
         }
 
         this.setTitle("Something - the Swing clicker game!");
-        this.setLayout(null);  
+        this.setLayout(null);
         this.getContentPane().setBackground(bg);
-        this.setSize(500*x, 500*x);  
+        this.setSize(500*x, 500*x);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);  
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        this.setVisible(true);  
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
 
         button.setBounds(350*x, 390*x, 100*x, 50*x);
         button.setFont(new Font("", Font.BOLD, 16*x));

@@ -82,9 +82,7 @@ public class StartPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
-            this.dispose();
-            new Clicker(x);
-            Clicker.load();
+            new NewGame(this);
         }
         if(e.getSource() == settings){
             x += 1;

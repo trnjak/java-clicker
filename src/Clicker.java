@@ -36,7 +36,17 @@ public class Clicker extends JFrame implements ActionListener {
 
     JButton reset = new JButton("RESET");
 
-    public Clicker(int x){
+    File currentSave = new File("save.uwu");
+
+    public Clicker(int x, File save){
+        try{
+            load(save);
+            currentSave = save;
+        }catch(Exception e){
+            System.out.println("new game, empty file");
+            currentSave = save;
+        }
+
         this.setTitle("Something - the Swing clicker game!");
         this.setLayout(null);  
         this.getContentPane().setBackground(bg);
@@ -128,17 +138,17 @@ public class Clicker extends JFrame implements ActionListener {
         reset.addActionListener(this);
         this.add(reset);
 
-        run();
+        run(save);
     }
 
-    private void run(){
+    private void run(File save){
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         Runnable toRun = new Runnable() {
             public void run() {
                 points = points + cps;
                 textPoints.setText(String.valueOf(points));
                 textBought.setText("");
-                save();
+                save(save);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ie) {
@@ -159,9 +169,9 @@ public class Clicker extends JFrame implements ActionListener {
         powX.setText("[+10 POW]: " + Integer.toString(pricePowX));
     }
 
-    public static void load(){
+    public static void load(File save){
         try{
-            FileInputStream fis = new FileInputStream("save.uwu");
+            FileInputStream fis = new FileInputStream(save);
             Scanner in = new Scanner(fis);
             points = in.nextLong();
             cps = in.nextInt();
@@ -177,9 +187,9 @@ public class Clicker extends JFrame implements ActionListener {
         }
     }
 
-    public static void save(){
+    public static void save(File save){
         try{
-            PrintWriter pw = new PrintWriter("save.uwu");
+            PrintWriter pw = new PrintWriter(save);
             pw.println(points + " " + cps + " " + priceCps + " " + priceCpsX + " " + pow + " " + pricePow + " " + pricePowX);
             pw.flush();
             pw.close();
@@ -188,9 +198,9 @@ public class Clicker extends JFrame implements ActionListener {
         }
     }
 
-    public static void reset(){
+    public static void reset(File save){
         try{
-            PrintWriter pw = new PrintWriter("save.uwu");
+            PrintWriter pw = new PrintWriter(save);
             points = 0;
             cps = 0;
             priceCps = 100;
@@ -202,7 +212,7 @@ public class Clicker extends JFrame implements ActionListener {
             pw.flush();
             pw.close();
             settingText();
-            save();
+            save(save);
         }catch (FileNotFoundException d){
             System.out.println(d.getMessage());
         }
@@ -271,7 +281,7 @@ public class Clicker extends JFrame implements ActionListener {
             }
         }
         if(e.getSource() == reset){
-            new ResetCheck();
+            new ResetCheck(this);
         }
     }
 }

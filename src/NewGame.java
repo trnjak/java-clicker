@@ -63,10 +63,7 @@ public class NewGame extends JFrame implements ActionListener {
         loadGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                chooser.showOpenDialog(null);
-                if(chooser.getSelectedFile().getName().endsWith("uwu")){
-                    sp.dispose();
-                }
+                sp.dispose();
             }
         });
         loadGame.setPreferredSize(new Dimension(125*x, 125*x));
@@ -101,10 +98,8 @@ public class NewGame extends JFrame implements ActionListener {
             new Clicker(x, save);
         }
         if(e.getSource() == loadGame){
-            if(chooser.getSelectedFile().getName().endsWith("uwu")){
-                this.dispose();
-                new Clicker(x, chooser.getSelectedFile());
-            }
+            new LoadPicker();
+            this.dispose();
         }
     }
 }

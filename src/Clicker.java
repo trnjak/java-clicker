@@ -4,23 +4,12 @@ import java.awt.event.*;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.*;
 
 public class Clicker extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         new StartPage();
-        load();
-        while(true){
-            points = points + cps;
-            textPoints.setText(String.valueOf(points));
-            textBought.setText("");
-            save();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ie) {
-                ie.printStackTrace();
-            }
-        }
     }
 
     Color bg = new Color(0x546A76), fg = new Color(0xFAD4D8);
@@ -138,6 +127,26 @@ public class Clicker extends JFrame implements ActionListener {
         reset.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         reset.addActionListener(this);
         this.add(reset);
+
+        run();
+    }
+
+    private void run(){
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        Runnable toRun = new Runnable() {
+            public void run() {
+                points = points + cps;
+                textPoints.setText(String.valueOf(points));
+                textBought.setText("");
+                save();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
+            }
+        };
+        scheduler.scheduleAtFixedRate(toRun, 1, 1, TimeUnit.SECONDS);
     }
 
     static void settingText(){

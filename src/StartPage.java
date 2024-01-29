@@ -84,6 +84,7 @@ public class StartPage extends JFrame implements ActionListener {
         if(e.getSource() == button){
             this.dispose();
             new Clicker(x);
+            Clicker.load();
         }
         if(e.getSource() == settings){
             x += 1;

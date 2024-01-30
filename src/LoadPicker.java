@@ -66,7 +66,7 @@ public class LoadPicker implements ActionListener {
                 try {
                     j.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
                 } catch (Exception e) {
-                    j.setFont(new Font("Consolas", Font.BOLD, 16*x));
+                    j.setFont(new Font("Consolas", Font.BOLD, 12*x));
                 }
                 j.setForeground(fg);
                 j.setBackground(bg);
@@ -75,7 +75,7 @@ public class LoadPicker implements ActionListener {
                 try {
                     button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
                 } catch (Exception e) {
-                    button.setFont(new Font("Consolas", Font.BOLD, 16*x));
+                    button.setFont(new Font("Consolas", Font.BOLD, 12*x));
                 }
                 button.setForeground(fg);
                 button.setBackground(bg);

@@ -33,7 +33,7 @@ public class ResetCheck extends JFrame implements ActionListener {
         try {
             yes.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            yes.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         yes.setForeground(fg);
         yes.setBackground(bg);
@@ -52,7 +52,7 @@ public class ResetCheck extends JFrame implements ActionListener {
         try {
             no.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            no.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         no.setForeground(fg);
         no.setBackground(bg);

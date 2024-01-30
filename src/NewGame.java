@@ -41,7 +41,7 @@ public class NewGame extends JFrame implements ActionListener {
         try {
             newGame.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            newGame.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         newGame.setForeground(fg);
         newGame.setBackground(bg);
@@ -60,7 +60,7 @@ public class NewGame extends JFrame implements ActionListener {
         try {
             loadGame.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            loadGame.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         loadGame.setForeground(fg);
         loadGame.setBackground(bg);

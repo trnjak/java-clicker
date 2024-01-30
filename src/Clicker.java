@@ -45,7 +45,7 @@ public class Clicker extends JFrame implements ActionListener {
             load(save);
             currentSave = save;
         }catch(Exception e){
-            System.out.println("new game, empty file");
+            System.out.println(e.getMessage());
             currentSave = save;
         }
 
@@ -62,7 +62,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            button.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         button.setFocusPainted(false);
         button.setBorderPainted(false);
@@ -76,7 +76,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             textPoints.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(28f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            textPoints.setFont(new Font("Consolas", Font.BOLD, 28*x));
         }
         textPoints.setForeground(fg);
         this.add(textPoints);
@@ -85,7 +85,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             textPow.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            textPow.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         textPow.setForeground(fg);
         this.add(textPow);
@@ -94,7 +94,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             textCps.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            textCps.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         textCps.setForeground(fg);
         this.add(textCps);
@@ -103,7 +103,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             textBought.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            textBought.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         textBought.setForeground(fg);
         this.add(textBought);
@@ -112,7 +112,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             powPlus.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            powPlus.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         powPlus.setFocusPainted(false);
         powPlus.setBorderPainted(false);
@@ -126,7 +126,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             powX.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            powX.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         powX.setFocusPainted(false);
         powX.setBorderPainted(false);
@@ -140,7 +140,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             cpsPlus.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            cpsPlus.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         cpsPlus.setFocusPainted(false);
         cpsPlus.setBorderPainted(false);
@@ -154,7 +154,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             cpsX.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            cpsX.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         cpsX.setFocusPainted(false);
         cpsX.setBorderPainted(false);
@@ -170,7 +170,7 @@ public class Clicker extends JFrame implements ActionListener {
         try {
             reset.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/VladivostokRegular.otf")).deriveFont(16f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            reset.setFont(new Font("Consolas", Font.BOLD, 16*x));
         }
         reset.setFocusPainted(false);
         reset.setBorderPainted(false);

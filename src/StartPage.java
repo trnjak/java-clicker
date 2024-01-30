@@ -35,7 +35,7 @@ public class StartPage extends JFrame implements ActionListener {
         try {
             button.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(28f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            button.setFont(new Font("Consolas", Font.BOLD, 28*x));
         }
         button.setForeground(fg);
         button.setBackground(bg);
@@ -48,7 +48,7 @@ public class StartPage extends JFrame implements ActionListener {
         try {
             settings.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(28f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            settings.setFont(new Font("Consolas", Font.BOLD, 28*x));
         }
         settings.setForeground(fg);
         settings.setBackground(bg);
@@ -60,7 +60,7 @@ public class StartPage extends JFrame implements ActionListener {
         try {
             title.setFont(Font.createFont(Font.TRUETYPE_FONT, new File("../fonts/SoyuzGroteskBold.otf")).deriveFont(28f*x));
         } catch (Exception e) {
-            e.printStackTrace();
+            title.setFont(new Font("Consolas", Font.BOLD, 28*x));
         }
         title.setForeground(fg);
         title.setBorder(new LineBorder(fg));
